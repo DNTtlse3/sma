@@ -232,7 +232,7 @@ def _near_building(agent, world, building: str) -> bool:
         return True
     for nx, ny in world.neighbors(agent.x, agent.y):
         if world.tile(nx, ny).building == building:
-            return False
+            return True
     return False
 
 
