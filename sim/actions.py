@@ -94,7 +94,7 @@ def do_move(agent, world, goal: str) -> float:
 
 
 def _owner_enemies(agent, owner_id: str) -> bool:
-    """Le piègeur est-il un ennemi connu de l'agent qui marche ?"""
+    """Le piégeur est-il un ennemi connu de l'agent qui marche ?"""
     if owner_id in agent.enemies:
         return True
     info = agent.social_memory.get(owner_id)
