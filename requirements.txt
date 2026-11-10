@@ -1,1 +1,3 @@
-# Aucune dépendance externe : bibliothèque standard Python 3.10+
+# Simulation seule : bibliothèque standard Python 3.10+ (aucune dépendance)
+# Tableau de bord Streamlit (app.py) :
+streamlit>=1.36
