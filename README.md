@@ -37,10 +37,38 @@ Tests :
 python -m unittest tests.test_sim -v
 ```
 
+## Visualisation avec Streamlit
+
+Un tableau de bord temps réel permet d'observer la simulation en direct :
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Fonctionnalités du tableau de bord :
+
+- **Carte colorée en direct** : biomes, bâtiments, feux, agents (M blancs, F roses)
+- **Contrôles** : ▶️ Play / ⏸ Pause, avances rapides (+100 / +1000 ticks),
+  nouvelle simulation (graine, population, taille de carte, population max)
+- **Indicateurs** : population, jour/saison, naissances, décès, groupes, alliances
+- **Courbes** : dynamique de population, alliances, échanges, attaques,
+  diffusion technologique (recettes moyennes)
+- **Groupes émergents** : type (famille → clan → tribu → société), membres,
+  bâtiments, relations inter-groupes
+- **Inspecteur d'agent** : santé, énergie, faim, soif, réputation, inventaire,
+  compétences, recettes connues, état de la politique Q (états, ε, α)
+- **Causes de décès** : graphique des mortalités par cause
+
+La simulation elle-même reste sans dépendance : Streamlit n'est requis que
+pour la visualisation.
+
 ## Architecture
 
 ```
 main.py                 CLI : lance la simulation, affiche et exporte
+app.py                  tableau de bord Streamlit : carte en direct, contrôles,
+                        courbes, groupes, inspecteur d'agents
 sim/
   config.py             constantes : biomes, ressources, recettes, bâtiments,
                         pièges, récompenses, physiologie, social
@@ -61,6 +89,7 @@ sim/
                         récompense → apprentissage ; reproduction, génétique,
                         groupes, production agricole, métriques
 tests/test_sim.py       21 tests unitaires et d'intégration
+tests/test_dashboard.py 3 tests du tableau de bord (AppTest)
 ```
 
 ## Couverture de la spécification
