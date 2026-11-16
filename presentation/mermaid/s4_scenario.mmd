@@ -1,0 +1,9 @@
+flowchart LR
+    S["1 · Signalement<br/>un habitant repère<br/>un fugitif"] --> P["2 · Poursuite<br/>les policiers mémorisent<br/>la cible, calculent<br/>l'itinéraire"]
+    P --> F["3 · Fuite<br/>le fugitif s'éloigne<br/>des policiers connus"]
+    F --> A["4 · Arrestation<br/>même nœud :<br/>capture"]
+    F -. "nouveau signalement" .-> S
+    style S fill:#309D69,stroke:#309D69,color:#FFFFFF
+    style P fill:#1969BE,stroke:#1969BE,color:#FFFFFF
+    style F fill:#E24941,stroke:#E24941,color:#FFFFFF
+    style A fill:#0A1D3D,stroke:#0A1D3D,color:#FFFFFF
