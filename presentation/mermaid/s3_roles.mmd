@@ -1,0 +1,10 @@
+flowchart LR
+    P["POLICIERS<br/>détectent, partagent<br/>les cibles, poursuivent"]
+    F["FUGITIFS<br/>perçoivent les policiers<br/>et s'en éloignent"]
+    H["HABITANTS<br/>allégeance : signaler<br/>ou prévenir"]
+    H -- "signale la position" --> P
+    H -- "prévient du danger" --> F
+    P -- "poursuite par<br/>le plus court chemin" --> F
+    style P fill:#1969BE,stroke:#1969BE,color:#FFFFFF
+    style F fill:#E24941,stroke:#E24941,color:#FFFFFF
+    style H fill:#309D69,stroke:#309D69,color:#FFFFFF

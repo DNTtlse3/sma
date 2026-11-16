@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph DATA["Données"]
+        OSM["OpenStreetMap"]
+        CACHE["Cache local<br/>data/saint_denis.graphml"]
+    end
+    subgraph SIM["Simulation"]
+        NX["OSMnx + NetworkX<br/>graphe routier"]
+        MESA["Mesa<br/>agents · comportements · étapes"]
+    end
+    subgraph UI["Diffusion"]
+        FLASK["Flask + Socket.IO<br/>serveur · positions"]
+        LEAF["Leaflet<br/>carte navigateur"]
+    end
+    OSM --> NX --> CACHE
+    NX --> MESA --> FLASK --> LEAF
+    style OSM fill:#F8FBFF,stroke:#5D7089,color:#0A1D3D
+    style CACHE fill:#F8FBFF,stroke:#5D7089,color:#0A1D3D
+    style NX fill:#E7F1FB,stroke:#1969BE,color:#0A1D3D
+    style MESA fill:#1969BE,stroke:#1969BE,color:#FFFFFF
+    style FLASK fill:#E7F1FB,stroke:#1969BE,color:#0A1D3D
+    style LEAF fill:#E7F1FB,stroke:#1969BE,color:#0A1D3D
